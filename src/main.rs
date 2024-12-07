@@ -27,7 +27,7 @@ fn init_logger() {
         simplelog::WriteLogger::new(
             simplelog::LevelFilter::Info,
             simplelog::Config::default(),
-            File::create("log/server.log").unwrap(),
+            File::create("server.log").unwrap(),
         ),
     ])
     .unwrap();
@@ -35,6 +35,5 @@ fn init_logger() {
 
 fn main() -> std::io::Result<()> {
     init_logger();
-    // infrastructure::actix::router::run()
-    todo!()
+    infrastructure::actix::router::run()
 }
