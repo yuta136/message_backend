@@ -1,0 +1,25 @@
+# 方針
+- メッセージを送ると、そのメッセージが返ってくる ok
+ 練習
+ chatGPTなどを使って良い
+ 1, jsonで、message1とmessage2を送る(curlで)。すると、message1とmessage2が合体された形で返ってくる
+ 例:
+    これを投げたら、curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message1\":\"Hello\", \"message2\":\"World\"}"
+    返ってくるのがこれならOK {"message":"HelloWorld"}
+
+    curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message1\":\"Ocha\", \"message2\":\"おいしい\"}"
+    response {"message":"Ochaおいしい"}
+ 
+ 課題
+    - dockerについて調べておく
+    - user_idとmessageを受け取り、"user_idからmessageが来ました"という返信をするエンドポイントを作成
+
+   curl -X POST localhost:5765/api/message2 -H "Content-Type: application/json" -d "{\"user_id\":\"User012\", \"message\":\"うまくいってますか？\"}" 
+   {"result":"User012からうまくいっていますかが来ました"}
+
+- メッセージを送ると、そのメッセージがDBに保存される
+- メッセージを送ると、メッセージが暗号化されて保存される
+- 通信相手は、暗号化されたメッセージを見れる
+- 通信相手は、暗号化されたメッセージを復号化して見れる
+
+curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message\":\"テスト\"}"

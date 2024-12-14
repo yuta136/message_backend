@@ -4,8 +4,8 @@ mod config;
 mod domain;
 mod infrastructure;
 
-use std::fs::File;
 use simplelog::*;
+use std::fs::File;
 
 fn init_logger() {
     /*

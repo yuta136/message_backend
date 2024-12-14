@@ -1,27 +1,21 @@
-use actix_web::{get, HttpResponse};
+use crate::infrastructure::actix::requests::MessageRequest;
+use actix_web::{post, web, HttpResponse};
 use serde_json::json;
 
-#[get("/api/hello")]
-async fn hello() -> Result<HttpResponse, actix_web::error::Error> {
+#[post("/api/message")]
+async fn message(
+    request: web::Json<MessageRequest>,
+) -> Result<HttpResponse, actix_web::error::Error> {
+    let message1 = request.clone().message1;
+    let message2 = request.clone().message2;
+
+    let mut message1_for_concat = message1.to_owned();
+    let message2_for_concat = message2.to_owned();
+    message1_for_concat.push_str(&message2_for_concat);
+
     Ok(HttpResponse::Ok().json(json!(
-        {"message": "Hello World!"}
+        {"message": message1_for_concat}
     )))
 }
-#[get("/api/rock")]
-async fn rock() -> Result<HttpResponse, actix_web::error::Error> {
-    Ok(HttpResponse::Ok().json(json!(
-        {"message":"paper"}
-    )))
-}
-#[get("/api/paper")]
-async fn paper() -> Result<HttpResponse, actix_web::error::Error> {
-    Ok(HttpResponse::Ok().json(json!(
-        {"message":"scissors"}
-    )))
-}
-#[get("/api/scissors")]
-async fn scissors() -> Result<HttpResponse, actix_web::error::Error> {
-    Ok(HttpResponse::Ok().json(json!(
-        {"message":"rock"}
-    )))
-}
+
+// 新しいエンドポイントをここに

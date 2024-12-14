@@ -6,10 +6,7 @@ pub async fn run() -> std::io::Result<()> {
     HttpServer::new(move || {
         App::new()
             .wrap(Logger::default())
-            .service(controllers::hello)
-            .service(controllers::rock)
-            .service(controllers::paper)
-            .service(controllers::scissors)
+            .service(controllers::message)
     })
     .bind(format!("{}:{}", "127.0.0.1", "5765"))?
     .run()
