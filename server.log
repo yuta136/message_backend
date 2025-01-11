@@ -1,18 +1,20 @@
-07:48:27 [INFO] starting 12 workers
-07:48:27 [INFO] Actix runtime found; starting in Actix runtime
-07:48:27 [INFO] starting service: "actix-web-service-127.0.0.1:5765", workers: 12, listening on: 127.0.0.1:5765
-07:48:39 [INFO] 127.0.0.1 "POST /api/message HTTP/1.1" 400 68 "-" "curl/8.9.1" 0.002258
-07:50:47 [INFO] SIGINT received; starting forced shutdown
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] shutting down idle worker
-07:50:47 [INFO] accept thread stopped
+08:25:12 [INFO] starting 12 workers
+08:25:12 [INFO] Actix runtime found; starting in Actix runtime
+08:25:12 [INFO] starting service: "actix-web-service-127.0.0.1:5765", workers: 12, listening on: 127.0.0.1:5765
+08:25:32 [INFO] 127.0.0.1 "POST /api/message HTTP/1.1" 400 68 "-" "curl/8.9.1" 0.002234
+08:26:14 [INFO] 127.0.0.1 "POST /api/message_2 HTTP/1.1" 400 63 "-" "curl/8.9.1" 0.004143
+08:28:58 [INFO] 127.0.0.1 "POST /api/message_2 HTTP/1.1" 200 57 "-" "curl/8.9.1" 0.001965
+08:29:44 [INFO] SIGINT received; starting forced shutdown
+08:29:44 [INFO] accept thread stopped
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker
+08:29:44 [INFO] shutting down idle worker

@@ -1,4 +1,4 @@
-use crate::infrastructure::actix::requests::MessageRequest;
+use crate::infrastructure::actix::requests::{Message2Request, MessageRequest};
 use actix_web::{post, web, HttpResponse};
 use serde_json::json;
 
@@ -22,10 +22,10 @@ async fn message(
 
 #[post("/api/message_2")]
 async fn message_2(
-    request: web::Json<MessageRequest>,
+    request: web::Json<Message2Request>,
 ) -> Result<HttpResponse, actix_web::error::Error> {
     let user_id = request.clone().user_id;
-    let message_a = request.clone().message_a;
+    let message_a = request.clone().message;
 
     let response_message = format!("{}から{}が来ました", user_id, message_a);
 

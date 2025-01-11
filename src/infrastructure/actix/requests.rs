@@ -4,7 +4,10 @@ use serde::Deserialize;
 pub struct MessageRequest {
     pub message1: String,
     pub message2: String,
+}
 
+#[derive(Deserialize, Clone)]
+pub struct Message2Request {
     pub user_id: String,
-    pub message_a: String,
+    pub message: String,
 }

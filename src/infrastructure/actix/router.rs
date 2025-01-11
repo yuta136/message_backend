@@ -7,6 +7,7 @@ pub async fn run() -> std::io::Result<()> {
         App::new()
             .wrap(Logger::default())
             .service(controllers::message)
+            .service(controllers::message_2)
     })
     .bind(format!("{}:{}", "127.0.0.1", "5765"))?
     .run()
