@@ -14,10 +14,18 @@
     - dockerについて調べておく
     - user_idとmessageを受け取り、"user_idからmessageが来ました"という返信をするエンドポイントを作成
 
+    -DB mysql　について調べる　仮想化技術
+    -webに関する知識　
+
+
    curl -X POST localhost:5765/api/message2 -H "Content-Type: application/json" -d "{\"user_id\":\"User012\", \"message\":\"うまくいってますか？\"}" 
    {"result":"User012からうまくいっていますかが来ました"}
 
 - メッセージを送ると、そのメッセージがDBに保存される
+   - dockerで、DBを立てる
+   - dockerに立てたDBとrustのバックエンドを接続する
+   - 保存する処理をかく
+   
 - メッセージを送ると、メッセージが暗号化されて保存される
 - 通信相手は、暗号化されたメッセージを見れる
 - 通信相手は、暗号化されたメッセージを復号化して見れる
