@@ -19,3 +19,17 @@ async fn message(
 }
 
 // 新しいエンドポイントをここに
+
+#[post("/api/message_2")]
+async fn message_2(
+    request: web::Json<MessageRequest>,
+) -> Result<HttpResponse, actix_web::error::Error> {
+    let user_id = request.clone().user_id;
+    let message_a = request.clone().message_a;
+
+    let response_message = format!("{}から{}が来ました", user_id, message_a);
+
+    Ok(HttpResponse::Ok().json(json!(
+        {"message_2":response_message}
+    )))
+}
