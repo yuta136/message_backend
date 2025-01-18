@@ -22,12 +22,29 @@
    {"result":"User012からうまくいっていますかが来ました"}
 
 - メッセージを送ると、そのメッセージがDBに保存される
-   - dockerで、DBを立てる
-   - dockerに立てたDBとrustのバックエンドを接続する
+   - dockerで、DBを立てる ok
+   - dockerに立てたDBとrustのバックエンドを接続する ok
    - 保存する処理をかく
+
+   sea_ormについて調べる sqlをプログラムで簡単にかけるようにするクレート
+   引き続き、webに関する知識をつける
    
 - メッセージを送ると、メッセージが暗号化されて保存される
 - 通信相手は、暗号化されたメッセージを見れる
 - 通信相手は、暗号化されたメッセージを復号化して見れる
 
 curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message\":\"テスト\"}"
+
+docker-compose up or down でコンテナを追加、破棄
+
+
+# dockerで立てたコンテナに入る
+- docker ps
+- docker exec -it **** bash (コンテナの中に入る)
+- mysql -u user -p (mysql を起動する)
+- passwordを入力
+- show databases;
+- use database_name;
+- show tables;
+- select * from messages;
+- 抜け出すにはexit;
