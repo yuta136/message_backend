@@ -28,6 +28,17 @@
 
    sea_ormについて調べる sqlをプログラムで簡単にかけるようにするクレート
    引き続き、webに関する知識をつける
+
+   sea_ormを使うために、DBの情報をsea_ormに認識させる(Entityを定義)
+   infrastructure層に保存処理を書く
+   実際に保存してみる
+
+   curl -X POST localhost:8090/api/message -H "Content-Type: application/json" -d "{\"message\":\"うまくいってますか？\"}" 
+   DBに保存される
+
+   - clean architectureについて調べる
+   - ソフトウェアアーキテクチャとは何か
+   - debug　messeage が?????に変換される問題をGPT等を用いて解決する
    
 - メッセージを送ると、メッセージが暗号化されて保存される
 - 通信相手は、暗号化されたメッセージを見れる

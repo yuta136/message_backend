@@ -1,21 +1,27 @@
-use crate::infrastructure::actix::requests::{Message2Request, MessageRequest};
+use crate::{
+    app::usecase::receive_message::{ReceiveMessageCommand, ReceiveMessageUseCase},
+    infrastructure::{
+        actix::requests::{Message2Request, MessageRequest},
+        app_state::AppState,
+    },
+};
 use actix_web::{post, web, HttpResponse};
 use serde_json::json;
 
 #[post("/api/message")]
 async fn message(
+    data: web::Data<AppState>,
     request: web::Json<MessageRequest>,
 ) -> Result<HttpResponse, actix_web::error::Error> {
     let message1 = request.clone().message1;
-    let message2 = request.clone().message2;
 
-    let mut message1_for_concat = message1.to_owned();
-    let message2_for_concat = message2.to_owned();
-    message1_for_concat.push_str(&message2_for_concat);
+    let message_command = ReceiveMessageCommand { message: message1 };
 
-    Ok(HttpResponse::Ok().json(json!(
-        {"message": message1_for_concat}
-    )))
+    let usecase = ReceiveMessageUseCase::new(data.message_repository.clone());
+
+    usecase.save(message_command).await?;
+
+    Ok(HttpResponse::Ok().into())
 }
 
 // 新しいエンドポイントをここに
