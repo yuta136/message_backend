@@ -33,7 +33,6 @@
    infrastructure層に保存処理を書く
    実際に保存してみる
 
-   curl -X POST localhost:8090/api/message -H "Content-Type: application/json" -d "{\"message\":\"うまくいってますか？\"}" 
    DBに保存される
 
    - clean architectureについて調べる
@@ -41,12 +40,22 @@
    - debug　messeage が?????に変換される問題をGPT等を用いて解決する
    
 - メッセージを送ると、メッセージが暗号化されて保存される
+
 - 通信相手は、暗号化されたメッセージを見れる
 - 通信相手は、暗号化されたメッセージを復号化して見れる
 
-curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message\":\"テスト\"}"
+curl -X POST localhost:5765/api/message -H "Content-Type: application/json" -d "{\"message1\":\"テスト\"}"
+↓　こっち
+C:\Users\yutak\Develop\message_backend>curl -X POST localhost:8090/api/message -H "Content-Type: application/json" -d "{\"message1\":\"テスト\"}"
 
-docker-compose up or down でコンテナを追加、破棄
+　docker-compose up or down でコンテナを追加、破棄
+
+main.rs  起点　→ cargo run 起動する
+　→router
+message1 の
+C:\Users\yutak\Develop\message_backend>curl -X POST localhost:8090/api/message -H "Content-Type: application/json" -d "{\"message1\":\"テスト\"}"
+の流れを説明する。
+　
 
 
 # dockerで立てたコンテナに入る
@@ -59,3 +68,12 @@ docker-compose up or down でコンテナを追加、破棄
 - show tables;
 - select * from messages;
 - 抜け出すにはexit;
+
+　3つのターミナルが必要
+   dockerを起動
+   別のターミナルでコンテナに入る
+   別のターミナルでrustを起動（cargo run）
+
+デバッグ
+　切り離しが大切　保存がうまくいかないならどこのタイミングで上手くいっていないのかを確認する。
+

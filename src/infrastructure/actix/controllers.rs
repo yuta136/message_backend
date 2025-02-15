@@ -6,6 +6,7 @@ use crate::{
     },
 };
 use actix_web::{post, web, HttpResponse};
+use log::info;
 use serde_json::json;
 
 #[post("/api/message")]
@@ -14,7 +15,6 @@ async fn message(
     request: web::Json<MessageRequest>,
 ) -> Result<HttpResponse, actix_web::error::Error> {
     let message1 = request.clone().message1;
-
     let message_command = ReceiveMessageCommand { message: message1 };
 
     let usecase = ReceiveMessageUseCase::new(data.message_repository.clone());

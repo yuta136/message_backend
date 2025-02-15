@@ -4,6 +4,8 @@ use crate::domain::repository::messages_repository::MessagesRepisotoryTrait;
 use crate::infrastructure::db::connection::DBConnection;
 use crate::infrastructure::db::entity::messages;
 use chrono::Utc;
+use log::info;
+use sea_orm::metric::Info;
 use sea_orm::ActiveValue::NotSet;
 use sea_orm::EntityTrait;
 use sea_orm::Set;
